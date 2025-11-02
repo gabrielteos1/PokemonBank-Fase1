@@ -1,0 +1,159 @@
+     /* Asegura que toda la pantalla se use */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #f3f3f3;
+  font-family: Arial, sans-serif;
+}
+
+/* Contenedor general (login y cajero) */
+.contenedor {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+/* Centra vertical y horizontalmente */
+#login, #cajero {
+  min-height: 100vh; /* Ocupa toda la altura visible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Inputs */
+input {
+  padding: 10px;
+  width: 85%;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Botones */
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Resultado (mensajes) */
+#resultado {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* --- Contenedor general (historial + gráfica) --- */
+#historialGraficaContainer {
+  display: flex;
+  flex-direction: row;         /* Coloca historial y gráfica lado a lado */
+  align-items: flex-start;     /* Alinea arriba */
+  justify-content: space-between;
+  gap: 20px;                   /* Espacio entre ambos */
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* --- Sección del historial --- */
+#historial {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 15px;
+  height: 400px; /* altura fija y legible */
+  overflow-y: auto;
+  flex: 1; /* Ocupa la mitad del espacio */
+  min-width: 45%;
+}
+
+/* --- Sección de la gráfica --- */
+.col-md-6.text-center {
+  flex: 1;
+  min-width: 45%;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#graficaHistorial {
+  width: 100% !important;
+  height: 360px !important;
+  margin-bottom: 10px;
+}
+
+/* --- Botón de descarga --- */
+#btnDescargarGrafica {
+  margin-top: 10px;
+}
+
+/* --- Ajuste responsivo para pantallas pequeñas --- */
+@media (max-width: 768px) {
+  #historialGraficaContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #historial,
+  .col-md-6.text-center {
+    width: 100%;
+    height: auto;
+    min-width: 100%;
+  }
+
+  #graficaHistorial {
+    height: 300px !important;
+  }
+}
+/* Contenedor general que pone historial y gráfica a la par */
+#historialGraficaContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap; /* Permite que se acomoden en columnas si la pantalla es pequeña */
+}
+
+/* Ajuste de proporción y estilo */
+#historial, 
+#graficaHistorial {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Responsivo: uno debajo del otro en móviles */
+@media (max-width: 768px) {
+  #historialGraficaContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #historial,
+  .text-center {
+    width: 90%;
+  }
+}
