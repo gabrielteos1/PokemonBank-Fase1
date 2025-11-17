@@ -1,8 +1,9 @@
 var cuenta = {
     
-  titular: "TEOS",
-  numeroCuenta: "00123456789",
+  titular: "Ash Ketchum ",
+  numCuenta: "0987654321 ",
   saldo: 0,
+  
   
 
   ingresar: function(cantidad) {
@@ -135,7 +136,3 @@ function mostrarInfo() {
     mostrandoSaldo = false; // marcamos como oculto
   }
 }
-
-
-   
-
