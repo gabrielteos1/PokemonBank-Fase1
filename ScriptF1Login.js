@@ -4,6 +4,8 @@ function verificarPin() {
   const pinIngresado = document.getElementById("pin").value.trim();
   const mensaje = document.getElementById("mensajeLogin");
 
+
+
   //  Validación con ValidateJS
   const constraints = {
     pin: {
@@ -25,9 +27,12 @@ function verificarPin() {
   if (pinIngresado === pinCorrecto) {
     document.getElementById("login").style.display = "none";
     document.getElementById("cajero").style.display = "block";
+    
     mensaje.textContent = "";
 
-    const titular = document.getElementById("titular").textContent;
+     document.getElementById("titular").textContent = account.owner;
+    document.getElementById("numCuenta").textContent = account.accountNumber;   
+ 
     swal("Acceso concedido", `¡Bienvenido, ${titular}!`, "success");
   } else {
     mensaje.textContent = "PIN incorrecto. Intente nuevamente.";
@@ -51,4 +56,11 @@ function mostrarPantalla(pantalla) {
   document.getElementById("graficaPantalla").style.display = "none";
   document.getElementById(pantalla).style.display = "block";
 }
+
+// --- REDIBUJAR GRÁFICA AL MOSTRAR LA PESTAÑA ---
+document.getElementById("grafica-tab").addEventListener("shown.bs.tab", function () {
+    if (typeof actualizarGrafica === "function") {
+        actualizarGrafica(); // vuelve a dibujar la gráfica
+    }
+});
 
