@@ -51,8 +51,8 @@
 
         <h2 class="text-center text-success mb-3"> Cajero Pokémon Bank</h2>
         <div class="text-center mb-4">
-          <p><strong>Titular:</strong> <span id="titular"></span></p>
-          <p><strong>Número de cuenta:</strong> <span id="numCuenta"></span></p>
+          <p><strong>Titular: Ash Ketchum </strong> <span id="titular"></span></p>
+          <p><strong>Número de cuenta: 0987654321  </strong> <span id="numCuenta"></span></p>
         </div>
 
         <div class="input-group mb-3">
@@ -91,26 +91,44 @@
      <!-- CONTENEDOR DE HISTORIAL Y GRÁFICA -->
       <div id="historialGraficaContainer">
   
-      <!-- HISTORIAL -->
-     <div id="historialContainer">
-    <h5> Historial de transacciones</h5>
-    <div id="historial">
-      <!-- Aquí se cargará el historial dinámicamente -->
-    </div>
-    <button id="btnDescargarHistorial" class="btn btn-outline-primary mt-3" onclick="descargarHistorialPDF()">
-      <i class="bi bi-download"></i> Descargar Historial (PDF)
+      <!-- NAV / PESTAÑAS -->
+<ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="historial-tab" data-bs-toggle="tab" data-bs-target="#tabHistorial" type="button" role="tab">
+      Historial
     </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="grafica-tab" data-bs-toggle="tab" data-bs-target="#tabGrafica" type="button" role="tab">
+      Gráfica
+    </button>
+  </li>
+</ul>
+
+<!-- CONTENIDO DE LAS PESTAÑAS -->
+<div class="tab-content mt-3" id="myTabContent">
+
+  <!-- TAB: HISTORIAL -->
+  <div class="tab-pane fade show active" id="tabHistorial" role="tabpanel">
+      <div id="historial" class="border rounded p-3 bg-white shadow-sm"
+           style="height: 350px; overflow-y: auto;">
+      </div>
   </div>
 
-  <!-- GRÁFICA -->
-      <div id="graficaContainer">
-    <h5> Resumen gráfico</h5>
-    <canvas id="graficaHistorial"></canvas>
-    <button id="btnDescargarGrafica" class="btn btn-outline-success mt-3" onclick="descargarGraficaPDF()">
-      <i class="bi bi-download"></i> Descargar Gráfica (PDF)
-     </button>
+  <!-- TAB: GRÁFICA -->
+  <div class="tab-pane fade" id="tabGrafica" role="tabpanel">
+      <div class="text-center">
+          <canvas id="graficaHistorial" width="400" height="250"></canvas>
 
+          <button id="btnDescargarGrafica" class="btn btn-outline-success mt-3" 
+                  onclick="descargarGraficaPDF()" style="display: none;">
+              <i class="bi bi-download"></i> Descargar Gráfica (PDF)
+          </button>
       </div>
+  </div>
+
+</div>
+
    </div>
 </div>
 </div>
